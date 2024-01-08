@@ -14,7 +14,7 @@ void Juego::mostrarMenu(){
         std::cout << "1. Jugar (Modo Facil)\n";
         std::cout << "2. Jugar (Modo Dificil)\n";
         std::cout << "3. Salir \n";
-        std >> opcion; 
+        std::cin >> opcion; 
 
         switch (opcion){
             case 1:
