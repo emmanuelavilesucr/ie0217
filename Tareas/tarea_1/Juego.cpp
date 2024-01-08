@@ -66,7 +66,7 @@ void Juego::jugar(bool modoDificil){
 
 }
 
-void Juego::imprimirPista(int numerosecreto, int intentoUsuario){
+void Juego::imprimirPista(int numeroSecreto, int intentoUsuario){
 
     if (intentoUsuario < numeroSecreto) {
         std::cout << "El número es mayor. ";
