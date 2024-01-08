@@ -18,16 +18,16 @@ void Juego::mostrarMenu(){
 
         switch (opcion){
             case 1:
-                modoFacil();
+                iniciarJuegoFacil();
                 break;
             case 2:
-                modoDificil();
+                iniciarJuegoDificil();
                 break;
             case 3:
-                std::cout << "";
+                std::cout << "Saliendo del juego.\n";
                 break;
             default:
-                ste::cout << "Opcion invalida. Intentelo de nuevo. \n";
+                std::cout << "Opcion invalida. Intentelo de nuevo. \n";
 
         }
     } while (opcion != 3);
