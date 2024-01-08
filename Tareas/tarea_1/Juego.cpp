@@ -1,5 +1,11 @@
 #include "Juego.hpp"
 #include <iostream>
+#include <cstdlib> 
+#include <ctime>  
+
+Juego::Juego() {
+    std::srand(std::time(0));    // Inicializa la generacion de números aleatorios
+}
 
 void Juego::mostrarMenu(){
     int opcion;
@@ -28,10 +34,9 @@ void Juego::mostrarMenu(){
 }
 
 void Juego::iniciarJuegoFacil(){
-
-
+    jugar(false);
 }
 
 void Juego::iniciarJuegoDificil(){
-
+    jugar(true);
 } 
