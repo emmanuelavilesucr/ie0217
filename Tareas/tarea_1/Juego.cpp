@@ -46,8 +46,8 @@ void Juego::jugar(bool modoDificil){
     const int numeroSecreto = std::rand() % limite + 1;
     const int intentos = limite / 3;
 
-    std::cout << "¡Bienvenido!\n";
-    std::cout << "Estoy pensando en un número entre 1 y : ??? " << limite << ".\n";
+    std::cout << "----Bienvenido----\n";
+    std::cout << "Estoy pensando en un numero entre 1 y " << limite << ".\n";
     std::cout << "Tienes " << intentos << " intentos para adivinar.\n";
 
     for (int intento = 1; intento <= intentos; ++intento){
@@ -56,23 +56,23 @@ void Juego::jugar(bool modoDificil){
         std::cin >> intentoUsuario; 
 
         if (intentoUsuario == numeroSecreto) {
-            std::cout << "¡Felicidades! Has adivinado el número.\n";
+            std::cout << "Felicidades. Has adivinado el numero.\n";
             return;
         } else {
             imprimirPista(numeroSecreto, intentoUsuario);
         }
     }
-    std::cout << "Lo siento, has agotado tus intentos. El número correcto era: " << numeroSecreto << "\n";
+    std::cout << "Lo siento, has agotado tus intentos. El numero correcto era: " << numeroSecreto << "\n";
 
 }
 
 void Juego::imprimirPista(int numeroSecreto, int intentoUsuario){
 
     if (intentoUsuario < numeroSecreto) {
-        std::cout << "El número es mayor. ";
+        std::cout << "El numero es mayor. ";
     } else {
-        std::cout << "El número es menor. ";
+        std::cout << "El numero es menor. ";
     }
-    std::cout << "¡Sigue intentándolo!\n"; // Se pueden modificar las frases con: "congelado", "frío", "caliente" o "hirviendo".
+    std::cout << "Sigue intentandolo\n"; // Se pueden modificar las frases con: "congelado", "frío", "caliente" o "hirviendo".
 
 }
