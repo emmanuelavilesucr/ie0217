@@ -53,7 +53,7 @@ void Juego::jugar(bool modoDificil){
     for (int intento = 1; intento <= intentos; ++intento){
         int intentoUsuario;
         std::cout << "Intento #" << intento << ": ";
-        std::cin << intentoUsuario; 
+        std::cin >> intentoUsuario; 
 
         if (intentoUsuario == numeroSecreto) {
             std::cout << "¡Felicidades! Has adivinado el número.\n";
