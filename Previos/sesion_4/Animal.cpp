@@ -21,7 +21,7 @@ class Animal {
 class Perro : public Animal {
     public:
         void setNombre(string n){
-            return nombre;
+            nombre = n;
         }
         string getNombre(){
             return nombre;
