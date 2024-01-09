@@ -26,7 +26,7 @@ int main() {
     
     // Llama a los miembros de la clase base.
     dog1.eat();
-    god1.sleep();
+    dog1.sleep();
     
     // Llama a los miembros de la clase derivada.
     dog1.bark();
