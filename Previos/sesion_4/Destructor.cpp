@@ -7,7 +7,7 @@ class Archivo {
 
     public:
         Archivo(std::string nombre_archivo) {
-            archivo.open(nombre_archivo, std::ios::in | std::ios | std::ios::out | std::ios::app);
+            archivo.open(nombre_archivo, std::ios::in | std::ios::out | std::ios::app);
             if (!archivo.is_open()) {
                 std::cout << "No es pudo abrir el archivo " << nombre_archivo << std::endl;
             }
