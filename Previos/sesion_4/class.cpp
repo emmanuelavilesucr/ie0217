@@ -1,2 +1,18 @@
 #include <iostream>
-using namespace std;
+using namespace std; 
+
+class Molde {
+
+
+
+
+};
+
+
+int main(){
+
+
+
+
+    return 0;
+}
