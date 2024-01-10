@@ -9,7 +9,7 @@ class Mammal {
         }
 };
 
-class WingedAnimal() {
+class WingedAnimal {
     public:
         WingedAnimal(){
             cout << "Winged animal can flap." << endl;
