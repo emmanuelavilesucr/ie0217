@@ -3,10 +3,17 @@
 #include <cstdlib> 
 #include <ctime>  
 
+/**
+ * @brief Constructor de la clase Juego.
+ * Inicializa la generación de números aleatorios.
+ */
 Juego::Juego() {
-    std::srand(std::time(0));    // Inicializa la generacion de números aleatorios
+    std::srand(std::time(0));
 }
 
+/**
+ * @brief Muestra el menú principal del juego y gestiona las opciones del usuario.
+ */
 void Juego::mostrarMenu(){
     int opcion;
     do {
@@ -28,21 +35,30 @@ void Juego::mostrarMenu(){
                 break;
             default:
                 std::cout << "Opcion invalida. Intentelo de nuevo. \n";
-
         }
     } while (opcion != 3);
 }
 
+/**
+ * @brief Inicia el juego en modo fácil llamando al método jugar().
+ */
 void Juego::iniciarJuegoFacil(){
     jugar(false);
 }
 
+/**
+ * @brief Inicia el juego en modo difícil llamando al método jugar().
+ */
 void Juego::iniciarJuegoDificil(){
     jugar(true);
 } 
 
+/**
+ * @brief Controla el flujo del juego, genera un número secreto y permite al jugador adivinarlo.
+ * @param modoDificil Indica si el juego debe ejecutarse en modo difícil.
+ */
 void Juego::jugar(bool modoDificil){
-    const int limite = modoDificil ? 100: 50; 
+    const int limite = modoDificil ? 100 : 50; 
     const int numeroSecreto = std::rand() % limite + 1;
     const int intentos = limite / 3;
 
@@ -63,16 +79,18 @@ void Juego::jugar(bool modoDificil){
         }
     }
     std::cout << "Lo siento, has agotado tus intentos. El numero correcto era: " << numeroSecreto << "\n";
-
 }
 
+/**
+ * @brief Imprime una pista al jugador sobre su intento.
+ * @param numeroSecreto El número secreto que el jugador intenta adivinar.
+ * @param intentoUsuario El intento del jugador.
+ */
 void Juego::imprimirPista(int numeroSecreto, int intentoUsuario){
-
     if (intentoUsuario < numeroSecreto) {
         std::cout << "El numero es mayor. ";
     } else {
         std::cout << "El numero es menor. ";
     }
     std::cout << "Sigue intentandolo\n"; // Se pueden modificar las frases con: "congelado", "frío", "caliente" o "hirviendo".
-
 }
