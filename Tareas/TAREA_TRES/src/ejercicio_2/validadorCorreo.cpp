@@ -2,6 +2,11 @@
 #include <iostream>
 #include <regex>
 
+/**
+ * @brief Valida si la dirección de correo electrónico sigue el formato estándar.
+ * @param correo Dirección de correo electrónico a validar.
+ * @return true si la dirección es válida, false en caso contrario.
+ */
 
 bool ValidadorCorreoElectronico::validarCorreo(const std::string& correo) {
         try {
@@ -21,6 +26,12 @@ bool ValidadorCorreoElectronico::validarCorreo(const std::string& correo) {
         return false;
     }
 }
+
+/**
+ * @brief Verifica si la dirección de correo electrónico contiene el símbolo '@'.
+ * @param correo Dirección de correo electrónico.
+ * @return true si contiene '@', false en caso contrario.
+ */
 
 bool ValidadorCorreoElectronico::tieneArroba(const std::string& correo) {
     return correo.find('@') != std::string::npos;

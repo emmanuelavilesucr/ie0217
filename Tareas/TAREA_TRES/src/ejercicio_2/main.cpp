@@ -2,9 +2,15 @@
 #include <iostream>
 #include <limits> 
 
+/**
+ * @brief Programa principal que valida direcciones de correo electrónico.
+ * @return 0 al finalizar el programa.
+ */
+
 int main() {
     ValidadorCorreoElectronico validador;
-
+    
+    // Bandera para verificar si se ingresó un correo electrónico válido
     bool correoValido = false;
 
     while (!correoValido) {
@@ -23,6 +29,7 @@ int main() {
             }
         }
 
+        // Verifica la entrada no válida y la maneja
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
