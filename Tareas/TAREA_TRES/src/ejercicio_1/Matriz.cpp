@@ -171,11 +171,56 @@ public:
 };
 
 class ImpresionMatrices {
-
+public:
+    template <typename T>
+    static void imprimirMatrices(const Matriz<T> &matriz1, const Matriz<T> &matriz2, const Matriz<T> &resultado, const std::string &operacion) {
+        std::cout << "Matriz 1:\n"
+                  << matriz1;
+        std::cout << "Matriz 2:\n"
+                  << matriz2;
+        std::cout << "Operación: " << operacion << '\n';
+        std::cout << "Resultado:\n"
+                  << resultado;
+    }
 };
 
 int main() {
+    try {
+         
+        Matriz<float> matriz1(0, 0);
+        Matriz<float> matriz2(0, 0);
+        
+        std::cout << "Ingrese los datos para la primera matriz:\n";
+        matriz1.pedirDatos();
 
+        std::cout << "Ingrese los datos para la segunda matriz:\n";
+        matriz2.pedirDatos();
+        
+        std::cout << "Seleccione la operación a realizar (suma, resta, multiplicacion): ";
+        std::string operacion;
+        std::cin >> operacion;
+        
+        if (operacion == "suma") {
+            OperacionesBasicas<float>::validar(matriz1, matriz2, "suma");
+            Matriz<float> resultado = OperacionesBasicas<float>::suma(matriz1, matriz2);
+            ImpresionMatrices::imprimirMatrices(matriz1, matriz2, resultado, "suma");
+        } else if (operacion == "resta") {
+            OperacionesBasicas<float>::validar(matriz1, matriz2, "resta");
+            Matriz<float> resultado = OperacionesBasicas<float>::resta(matriz1, matriz2);
+            ImpresionMatrices::imprimirMatrices(matriz1, matriz2, resultado, "resta");
+        } else if (operacion == "multiplicacion") {
+            OperacionesBasicas<float>::validar(matriz1, matriz2, "multiplicacion");
+            Matriz<float> resultado = OperacionesBasicas<float>::multiplicacion(matriz1, matriz2);
+            ImpresionMatrices::imprimirMatrices(matriz1, matriz2, resultado, "multiplicacion");
+        } else {
+            std::cerr << "Error: Operación no válida.\n";
+            return 1;
+        }
 
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << '\n';
+        return 1;
+    }
 
+    return 0;
 }
