@@ -4,13 +4,25 @@
 #include <stdexcept>
 #include <typeinfo>
 
+
+
 template <typename T>
 class Matriz {
 private:
     std::vector<std::vector<T>> matriz;
 
+    /**
+     * @brief Constructor de la clase Matriz.
+     * @param filas Numero de filas de la matriz.
+     * @param columnas Numero de columnas de la matriz.
+     */
+
 public:
     Matriz(int filas, int columnas) : matriz(filas, std::vector<T>(columnas)) {}
+
+    /**
+     * @brief Este metodo se utiliza para ingresar datos en la matriz desde la entrada estandar.
+     */
 
     void pedirDatos() {
         std::cout << "Ingrese el tamaño de la matriz (filas columnas): ";
@@ -35,21 +47,51 @@ public:
         }
     }
 
+    /**
+     * @brief Este metodo se utiliza para obtener el número de filas de la matriz.
+     * @return Numero de filas de la matriz.
+     */
+
     int obtenerFilas() const {
         return matriz.size();
     }
+
+    /**
+     * @brief Este metodo se utiliza para obtener el numero de columnas de la matriz.
+     * @return Numero de columnas de la matriz.
+     */
 
     int obtenerColumnas() const {
         return matriz.empty() ? 0 : matriz[0].size();
     }
 
+    /**
+     * @brief Este mtodo se utiliza para obtener el elemento en una posición específica de la matriz.
+     * @param fila Fila del elemento.
+     * @param columna Columna del elemento.
+     * @return Elemento en la posición (fila, columna).
+     */
+
     T obtenerElemento(int fila, int columna) const {
         return matriz.at(fila).at(columna);
     }
 
+    /**
+     * @brief Este metodo se utiliza para asignar un valor a un elemento específico de la matriz.
+     * @param fila Fila del elemento.
+     * @param columna Columna del elemento.
+     * @param valor Valor a asignar al elemento.
+     */
+
     void asignarElemento(int fila, int columna, T valor) {
         matriz.at(fila).at(columna) = valor;
     }
+
+    /**
+     * @brief Sobrecarga del operador de suma para matrices.
+     * @param otraMatriz Matriz a sumar.
+     * @return Matriz resultante de la suma.
+     */
 
     Matriz<T> operator+(const Matriz<T> &otraMatriz) const {
         if (this->obtenerFilas() != otraMatriz.obtenerFilas() || this->obtenerColumnas() != otraMatriz.obtenerColumnas()) {
@@ -65,6 +107,12 @@ public:
         return resultado;
     }
 
+    /**
+     * @brief Sobrecarga del operador de resta para matrices.
+     * @param otraMatriz Matriz a restar.
+     * @return Matriz resultante de la resta.
+     */
+
     Matriz<T> operator-(const Matriz<T> &otraMatriz) const {
         if (this->obtenerFilas() != otraMatriz.obtenerFilas() || this->obtenerColumnas() != otraMatriz.obtenerColumnas()) {
             throw std::invalid_argument("Las matrices deben tener las mismas dimensiones para la resta");
@@ -78,6 +126,12 @@ public:
         }
         return resultado;
     }
+
+    /**
+     * @brief Sobrecarga del operador de multiplicación para matrices.
+     * @param otraMatriz Matriz a multiplicar.
+     * @return Matriz resultante de la multiplicación.
+     */
 
     Matriz<T> operator*(const Matriz<T> &otraMatriz) const {
         if (this->obtenerColumnas() != otraMatriz.obtenerFilas()) {
@@ -97,6 +151,13 @@ public:
         return resultado;
     }
 
+    /**
+     * @brief Sobrecarga del operador de salida para imprimir la matriz.
+     * @param os Flujo de salida.
+     * @param matriz Matriz a imprimir.
+     * @return Flujo de salida modificado.
+     */
+
     friend std::ostream &operator<<(std::ostream &os, const Matriz<T> &matriz) {
         for (const auto &fila : matriz.matriz) {
             for (const auto &elemento : fila) {
@@ -108,10 +169,17 @@ public:
     }
 };
 
-
 template <typename T>
 class OperacionesBasicas {
 public:
+
+    /**
+     * @brief Este metodo se utiliza para validar la compatibilidad de matrices en una operacion.
+     * @param matriz1 Primera matriz.
+     * @param matriz2 Segunda matriz.
+     * @param operacion Tipo de operacion a realizar (suma, resta, multiplicacion).
+     */
+
     static void validar(const Matriz<T> &matriz1, const Matriz<T> &matriz2, const std::string &operacion) {
         if (typeid(T) != typeid(float)) {
             throw std::invalid_argument("Las matrices deben tener el mismo tipo de datos");
@@ -130,15 +198,36 @@ public:
         }
     }
 
+    /**
+     * @brief Este metodo se utiliza para realizar la suma de dos matrices.
+     * @param matriz1 Primera matriz.
+     * @param matriz2 Segunda matriz.
+     * @return Matriz resultante de la suma.
+     */
+
     static Matriz<T> suma(const Matriz<T> &matriz1, const Matriz<T> &matriz2) {
         validar(matriz1, matriz2, "suma");
         return matriz1 + matriz2;
     }
 
+    /**
+     * @brief Este metodo se utiliza para realizar la resta de dos matrices.
+     * @param matriz1 Primera matriz.
+     * @param matriz2 Segunda matriz.
+     * @return Matriz resultante de la resta.
+     */
+
     static Matriz<T> resta(const Matriz<T> &matriz1, const Matriz<T> &matriz2) {
         validar(matriz1, matriz2, "resta");
         return matriz1 - matriz2;
     }
+
+    /**
+     * @brief Este metodo se utiliza para realizar la multiplicacion de dos matrices.
+     * @param matriz1 Primera matriz.
+     * @param matriz2 Segunda matriz.
+     * @return Matriz resultante de la multiplicacion.
+     */
 
     static Matriz<T> multiplicacion(const Matriz<T> &matriz1, const Matriz<T> &matriz2) {
         validar(matriz1, matriz2, "multiplicacion");
@@ -146,9 +235,19 @@ public:
     }
 };
 
+
 template <typename T>
 class OperacionesComplejas {
 public:
+
+    /**
+     * @brief Este metodo se utiliza para realizar operaciones complejas en matrices de numeros complejos.
+     * @param matriz1 Primera matriz de numeros complejos.
+     * @param matriz2 Segunda matriz de numeros complejos.
+     * @param operacion Tipo de operacion a realizar (suma, resta, multiplicacion).
+     * @return Matriz resultante de la operacion compleja.
+     */
+
     static Matriz<std::complex<T>> operacionesComplejas(const Matriz<std::complex<T>> &matriz1, const Matriz<std::complex<T>> &matriz2, const std::string &operacion) {
         Matriz<std::complex<T>> resultado(matriz1.obtenerFilas(), matriz1.obtenerColumnas());
 
@@ -170,8 +269,22 @@ public:
     }
 };
 
+/**
+ * @brief Clase para imprimir matrices y sus resultados en la salida estandar.
+ */
+
 class ImpresionMatrices {
 public:
+
+    /**
+     * @brief Este metodo se utiliza para imprimir matrices y resultados.
+     * @tparam T Tipo de datos de los elementos de las matrices.
+     * @param matriz1 Primera matriz.
+     * @param matriz2 Segunda matriz.
+     * @param resultado Resultado de la operación.
+     * @param operacion Tipo de operación realizada.
+     */
+
     template <typename T>
     static void imprimirMatrices(const Matriz<T> &matriz1, const Matriz<T> &matriz2, const Matriz<T> &resultado, const std::string &operacion) {
         std::cout << "Matriz 1:\n"
@@ -183,6 +296,11 @@ public:
                   << resultado;
     }
 };
+
+/**
+ * @brief Función principal del programa.
+ * @return Codigo de salida del programa.
+ */
 
 int main() {
     try {
