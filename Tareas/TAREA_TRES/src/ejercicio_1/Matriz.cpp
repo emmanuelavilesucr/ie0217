@@ -24,7 +24,7 @@ public:
             for (int j = 0; j < columnas; ++j) {
                 try {
                     T valor;
-                    std::cout << "Ingrese el elemento [" << i << "][" << j << "]: ";
+                    std::cout << "Ingrese el elemento [" << i+1 << "][" << j+1 << "]: ";
                     std::cin >> valor;
                     matriz[i][j] = valor;
                 } catch (const std::invalid_argument &e) {
