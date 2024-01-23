@@ -109,16 +109,70 @@ public:
 };
 
 
+template <typename T>
 class OperacionesBasicas {
+public:
+    static void validar(const Matriz<T> &matriz1, const Matriz<T> &matriz2, const std::string &operacion) {
+        if (typeid(T) != typeid(float)) {
+            throw std::invalid_argument("Las matrices deben tener el mismo tipo de datos");
+        }
 
+        if (operacion == "suma" || operacion == "resta") {
+            if (matriz1.obtenerFilas() != matriz2.obtenerFilas() || matriz1.obtenerColumnas() != matriz2.obtenerColumnas()) {
+                throw std::invalid_argument("Las matrices deben tener las mismas dimensiones para suma/resta");
+            }
+        } else if (operacion == "multiplicacion") {
+            if (matriz1.obtenerColumnas() != matriz2.obtenerFilas()) {
+                throw std::invalid_argument("El número de columnas de la primera matriz debe ser igual al número de filas de la segunda matriz para multiplicación");
+            }
+        } else {
+            throw std::invalid_argument("Operación no válida");
+        }
+    }
+
+    static Matriz<T> suma(const Matriz<T> &matriz1, const Matriz<T> &matriz2) {
+        validar(matriz1, matriz2, "suma");
+        return matriz1 + matriz2;
+    }
+
+    static Matriz<T> resta(const Matriz<T> &matriz1, const Matriz<T> &matriz2) {
+        validar(matriz1, matriz2, "resta");
+        return matriz1 - matriz2;
+    }
+
+    static Matriz<T> multiplicacion(const Matriz<T> &matriz1, const Matriz<T> &matriz2) {
+        validar(matriz1, matriz2, "multiplicacion");
+        return matriz1 * matriz2;
+    }
 };
 
-
+template <typename T>
 class OperacionesComplejas {
+public:
+    static Matriz<std::complex<T>> operacionesComplejas(const Matriz<std::complex<T>> &matriz1, const Matriz<std::complex<T>> &matriz2, const std::string &operacion) {
+        Matriz<std::complex<T>> resultado(matriz1.obtenerFilas(), matriz1.obtenerColumnas());
 
+        for (int i = 0; i < matriz1.obtenerFilas(); ++i) {
+            for (int j = 0; j < matriz1.obtenerColumnas(); ++j) {
+                if (operacion == "suma") {
+                    resultado.asignarElemento(i, j, matriz1.obtenerElemento(i, j) + matriz2.obtenerElemento(i, j));
+                } else if (operacion == "resta") {
+                    resultado.asignarElemento(i, j, matriz1.obtenerElemento(i, j) - matriz2.obtenerElemento(i, j));
+                } else if (operacion == "multiplicacion") {
+                    resultado.asignarElemento(i, j, matriz1.obtenerElemento(i, j) * matriz2.obtenerElemento(i, j));
+                } else {
+                    throw std::invalid_argument("Operación no válida");
+                }
+            }
+        }
+
+        return resultado;
+    }
 };
 
+class ImpresionMatrices {
 
+};
 
 int main() {
 
