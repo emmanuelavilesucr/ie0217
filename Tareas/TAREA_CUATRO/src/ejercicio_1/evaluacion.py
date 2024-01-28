@@ -1,5 +1,3 @@
-from alergia import Alergia
-
 class EvaluacionEspecifica:
     def __int__(self):
         self.alergias = []

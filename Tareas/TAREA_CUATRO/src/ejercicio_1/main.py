@@ -1,6 +1,7 @@
+from alergia import Alergia
 from evaluacion import EvaluacionEspecifica
 from tipos_alergias import TiposAlergias
-
+from evaluacion_general import EvaluacionGeneral
 
 def interfaz_usuario():
     tipos_alergias = TiposAlergias()
