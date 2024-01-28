@@ -8,7 +8,7 @@ class TiposAlergias:
 
 
 
-    def cargar_alergias_desde_archivo(self):
+    def cargar_alergias_desde_archivo(self, nombre_archivo):
         try:
             with open(nombre_archivo, 'r') as file:
                 for line in file:
@@ -23,12 +23,12 @@ class TiposAlergias:
 
 
 
-    def agregar_alergia(self):
+    def agregar_alergia(self, alergia):
         self.tipos_alergias.append(alergia)
  
  
  
-    def analizar_entrada_usuario(self):
+    def analizar_entrada_usuario(self, entrada):
         try:
             valor = int(entrada)
             alergia = next((a for a in self.tipos_alergias if a.valor == valor), None)
