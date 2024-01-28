@@ -4,6 +4,8 @@ from tipos_alergias import TiposAlergias
 from evaluacion_general import EvaluacionGeneral
 
 def interfaz_usuario():
+
+    """Esta funcion es la encargada de implementar la interfaz de usuario."""
     tipos_alergias = TiposAlergias()
     evaluacion_especifica = EvaluacionEspecifica()
     evaluacion_general = EvaluacionGeneral(evaluacion_especifica)
