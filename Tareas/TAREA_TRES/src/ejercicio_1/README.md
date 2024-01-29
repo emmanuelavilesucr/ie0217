@@ -9,4 +9,4 @@
 
 4. Link de Netlify: https://animated-chimera-a4b246.netlify.app/
 
-5. En el commit "Agregar generados de Doxygen" me referia al archivo de configuracion de Doxygen.
+5. Por error elimine la carpeta de la pagina web. La carpeta se encuentra en los commits anteriores.
