@@ -4,4 +4,4 @@
 
 2. Link de Netlify: https://neon-gingersnap-4ca0b1.netlify.app/
 
-3. En el commit "Agregar generados de Doxygen" me referia al archivo de configuracion de Doxygen.
+3. Por error elimine la carpeta de la pagina web. La carpeta se encuentra en los commits anteriores.
