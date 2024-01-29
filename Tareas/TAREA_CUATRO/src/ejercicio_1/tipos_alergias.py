@@ -12,7 +12,7 @@ class TiposAlergias:
 
 
 
-    def carr_alergias_desde_archivo(self, nombre_archivo):
+    def cargar_alergias_desde_archivo(self, nombre_archivo):
 
         """Carga los tipos de alergias desde un archivo y los almacena en la lista tipos_alergias.
 
