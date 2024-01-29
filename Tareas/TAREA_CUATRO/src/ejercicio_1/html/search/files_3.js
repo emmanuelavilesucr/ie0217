@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tipos_5falergias_2epy_0',['tipos_alergias.py',['../tipos__alergias_8py.html',1,'']]]
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]]
 ];
