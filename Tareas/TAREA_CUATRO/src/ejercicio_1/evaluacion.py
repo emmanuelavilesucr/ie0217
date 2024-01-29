@@ -1,7 +1,7 @@
 class EvaluacionEspecifica:
 
     """Clase que maneja la evaluación específica de alergias."""
-    def __int__(self):
+    def __init__(self):
 
         """Constructor de la clase EvaluacionEspecifica."""
         self.alergias = []
@@ -26,7 +26,7 @@ class EvaluacionEspecifica:
 
     def imprimir_evaluacion(self, puntuacion):
 
-         """Imprime la evaluación de alergias para una puntuación dada.
+        """Imprime la evaluación de alergias para una puntuación dada.
 
         Parameters:
         - puntuacion (int): La puntuación de alergias del usuario.
