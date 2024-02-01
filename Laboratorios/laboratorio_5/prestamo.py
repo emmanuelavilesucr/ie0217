@@ -66,13 +66,13 @@ def main():
         tasa_interes_anual = float(input("Ingrese la tasa de interes anual (%): "))
     
         # 3. Pedir la cantidad de cuotas
-        cuotas = int(input("Ingrese la cantidad de cuotas: "))
+        cuotas = int(input("Ingrese numero de cuotas: "))
     
         # 4. Instanciar el prestamo
         prestamo = Prestamo(monto_prestamo, tasa_interes_anual, cuotas)
     
         # 5. Generar el reporte 
-        prestamo.generar_reporte("reporte_prestamo.csv")
+        prestamo.generar_reporte("reporte.csv")
     
         # 6. Imprimir informacion , monto, tasa, cuotas.
         print(f"Informacion del prestamo:\nMonto: ${prestamo.monto_prestamo}\nTasa de Interes Anual: {prestamo.tasa_interes_anual}%\nCuotas: {prestamo.cuotas}")
