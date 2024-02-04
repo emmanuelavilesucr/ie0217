@@ -20,7 +20,17 @@ def promedio(datos):
 # Funcion del main 
 def main():
     
-    
+    promedio_alumno, promedio_materias, maximo, suma = promedio(datos) 
+
+   
+    print("Conjunto de Datos:")
+    print(datos)
+
+    print("\nResultado:")
+    print("Promedio del alumno:", promedio_alumno)
+    print("Promedio de la materia:", promedio_materias)
+    print("Calificación mas alta:", maximo)
+    print("Suma de calificaciones:", suma)
     
     
     return 
