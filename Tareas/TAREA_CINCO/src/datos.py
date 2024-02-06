@@ -1,13 +1,26 @@
+import pandas as pd
+import requests
+
 class BTS:
     def __init__(self, web):
         self.web = web 
     
-    def obtener_datos():
+    # Metodo encargado de  la obtencion de datos de las pagina web
+    def obtener_datos(self):
+        response = requests.get(self.web) 
+        html = response.text
         
-        # Codigo relacionado con la obtencion de datos de las pagina web
-        # Debe ser en formato CSV (Biblioteca Pandas)
+        # En esta parte implementare un cogido encargado de la extracion de los datos del HTML
+        
+        with open("aerolineas.csv", "w") as f:
+            f.write()
+            f.write()
+            f.write()
+        
+        
         # Usar iteradores en las transformaciones a columnas
         
+
         return  
         
         
@@ -31,4 +44,4 @@ class BTS:
         return 
         
 
-    
+bts = BTS("https://www.transtats.bts.gov/")
