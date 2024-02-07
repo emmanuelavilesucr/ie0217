@@ -15,7 +15,7 @@ def promedio(datos):
     maximo = np.max(datos, axis=1)
     suma = np.sum(datos, axis=0)
     
-    return 
+    return promedio_alumno, promedio_materias, maximo, suma
     
 # Funcion del main 
 def main():
@@ -23,9 +23,7 @@ def main():
     promedio_alumno, promedio_materias, maximo, suma = promedio(datos) 
 
    
-    print("Conjunto de Datos:")
-    print(datos)
-
+    print("Conjunto de Datos:\n", datos)
     print("\nResultado:")
     print("Promedio del alumno:", promedio_alumno)
     print("Promedio de la materia:", promedio_materias)
@@ -33,7 +31,4 @@ def main():
     print("Suma de calificaciones:", suma)
     
     
-    return 
-main()
-    
-    
+main()   
