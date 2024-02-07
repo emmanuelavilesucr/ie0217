@@ -1,18 +1,19 @@
-PYTHON = python3
+ifeq ($(OS), Windows_NT)
+	PYTHON=python
 
-MAIN_SCRIPT = ejercicio2.py
+else
+	PYTHON=python3
 
-ifeq ($(OS),Windows_NT)
-    PYTHON = python
 endif
 
-run:
-	$(PYTHON) $(MAIN_SCRIPT)
 
-test:
-	
+.PHONY: run_tarea run_ejercicio1 run_ejercicio2
 
-clean:
+run_tarea: run_ejercicio1 run_ejercicio2
 
+run_ejercicio1:
+	$(PYTHON) main.py
 
-.PHONY:
+run_ejercicio2:
+	$(PYTHON) ejercicio2.py
+          
