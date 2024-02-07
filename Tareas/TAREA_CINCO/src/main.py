@@ -2,6 +2,11 @@ from grafico import Grafico
 import time
 
 def main():
+    """
+    Funcion main del programa.
+
+    Muestra el menu de opciones.
+    """
     
     grafico = Grafico()
     
