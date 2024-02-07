@@ -38,3 +38,6 @@ class Grafico:
         return
     
     
+    def mostrar_tabla(self):
+    
+        print(self.df)
