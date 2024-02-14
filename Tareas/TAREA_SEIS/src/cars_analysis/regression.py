@@ -6,6 +6,9 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.preprocessing import LabelEncoder
 
 def regresion_lineal(data):
+   """
+    Esta funcion realiza una regresion lineal de la estadistica de los años del CSV.
+   """
   
    X = data[['year']]
    y = data['selling_price']  
@@ -19,6 +22,9 @@ def regresion_lineal(data):
 
 
 def regresion_polinomial(data):
+   """
+    Funcion encargada de la regresion polinomial de los kilometros.
+   """
    
    X = data[['km_driven']]
    y = data['selling_price'] 
@@ -34,6 +40,10 @@ def regresion_polinomial(data):
 
 
 def categorias(data):
+   
+   """
+    Se estaclecen las categorias de las variables de los datos del CSV.
+   """
    label_encoders = {}
    for column in ['name', 'fuel', 'seller_type', 'transmission', 'owner']:
        label_encoders[column] = LabelEncoder()
