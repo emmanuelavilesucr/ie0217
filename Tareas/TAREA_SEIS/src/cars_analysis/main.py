@@ -10,9 +10,9 @@ def main():
     api = KaggleApi()
     api.authenticate()
     dataset_name = "akshaydattatraykhare/car-details-dataset"
-    api.dataset_download_files(dataset_name, path="./cars_analys", unzip=True)
+    api.dataset_download_files(dataset_name, path="./Datos", unzip=True)
     
-    data = pd.read_csv('./cars_analys/CAR DETAILS FROM CAR DEKHO.csv')
+    data = pd.read_csv('./Datos/CAR DETAILS FROM CAR DEKHO.csv')
     
     data.dropna(inplace=True)
     data.drop_duplicates(inplace=True)
